@@ -14,18 +14,19 @@
   @endif
   <div class="card">
     <div class="card-header text-center font-weight-bold">
-      Laravel 8 - Add Blog Post Form Example
+      Laravel 8 - Update Blog Post Form Example
     </div>
     <div class="card-body">
-      <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{url('store-form')}}">
+      <form name="add-blog-post-form" id="add-blog-post-form" action="{{url('/update/')}}/{{$data->id}}">
        @csrf
+       @method('PUT')
         <div class="form-group">
           <label for="exampleInputEmail1">Title</label>
-          <input type="text" id="title" name="title" class="form-control" required="">
+          <input type="text" id="title" name="title" class="form-control" value="{{ $data->title }}" required="">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Description</label>
-          <textarea name="description" class="form-control" required=""></textarea>
+          <textarea name="description" class="form-control" required="">{{ $data->description }}</textarea>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
