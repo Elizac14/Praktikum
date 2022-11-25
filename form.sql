@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Okt 2022 pada 16.02
+-- Waktu pembuatan: 25 Nov 2022 pada 15.59
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -40,6 +40,32 @@ CREATE TABLE `failed_jobs` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `mahasiswas`
+--
+
+CREATE TABLE `mahasiswas` (
+  `nim` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nama` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `umur` int(11) NOT NULL,
+  `alamat` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kota` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `kelas` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `jurusan` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `mahasiswas`
+--
+
+INSERT INTO `mahasiswas` (`nim`, `nama`, `umur`, `alamat`, `kota`, `kelas`, `jurusan`, `created_at`, `updated_at`) VALUES
+('G.231.21.0110', 'Eliza Cahyaningrum', 17, 'Jl. Slamet No. 184', 'Semarang', '1', 'Teknik Informatika', '2022-11-25 07:40:49', '2022-11-25 07:40:49'),
+('G.231.21.0116', 'Roudhoutul Jannah', 19, 'Jl. Genuk 1', 'Cepu', '2', 'Ilmu Komunikasi', '2022-11-25 07:41:19', '2022-11-25 07:41:19');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `migrations`
 --
 
@@ -58,7 +84,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (2, '2014_10_12_100000_create_password_resets_table', 1),
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(5, '2022_10_31_144501_create_posts_table', 2);
+(5, '2022_10_31_144501_create_posts_table', 2),
+(6, '2022_11_25_143127_create_mahasiswas_table', 3);
 
 -- --------------------------------------------------------
 
@@ -110,7 +137,8 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`id`, `title`, `description`, `created_at`, `updated_at`) VALUES
-(4, 'Pemrograman Framework', 'Belajar Laravel', '2022-10-31 07:56:46', '2022-10-31 07:56:46');
+(1, 'Pemrograman', 'Belajar aseakseskeaske', '2022-10-31 07:56:46', '2022-11-13 09:58:39'),
+(2, 'Menampilkan Data', 'Pertemuan Operasi Database', '2022-11-06 01:05:50', '2022-11-06 01:05:50');
 
 -- --------------------------------------------------------
 
@@ -139,6 +167,12 @@ CREATE TABLE `users` (
 ALTER TABLE `failed_jobs`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indeks untuk tabel `mahasiswas`
+--
+ALTER TABLE `mahasiswas`
+  ADD PRIMARY KEY (`nim`);
 
 --
 -- Indeks untuk tabel `migrations`
@@ -187,7 +221,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
@@ -199,7 +233,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
